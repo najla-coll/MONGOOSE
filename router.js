@@ -62,7 +62,7 @@ router.get('/findid',(req,res)=>{
   })
 
 //////////////////////
-router.get('/add',(req,res)=>{
+router.put('/add',(req,res)=>{
  personModel.updateOne({_id:'60d31a76187ce01780a4051e'},{ $push: { favoriteFoods: "hamburger" }})
  .then((result)=>{
     res.send(result)})
@@ -73,7 +73,7 @@ router.get('/add',(req,res)=>{
 
 })
 ////////////////////:
-router.get('/findupdate',(req,res)=>{
+router.put('/findupdate',(req,res)=>{
   personModel.findOneAndUpdate({name:'yesser'},{ $set: { age:20 }})
   .then((result)=>{
      res.send(result)})
@@ -84,7 +84,7 @@ router.get('/findupdate',(req,res)=>{
  
  })
 ////////////////////////
-router.get('/findandremove',(req,res)=>{
+router.delete('/findandremove',(req,res)=>{
 personModel.findOneAndRemove({_id:'60d31a76187ce01780a4051e'})
 .then((result)=>{
 res.send(result)
